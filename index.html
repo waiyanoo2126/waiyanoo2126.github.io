@@ -190,7 +190,62 @@
             background: white;
             color: #1e293b;
             border-color: #cbd5e1;
-        }
+        } 
+        
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 60px 5%;
+    }
+
+    
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column; 
+        gap: 10px;
+        position: static;
+
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-links li a {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 0.9rem;
+    }
+
+    #theme-toggle {
+        margin-left: 10px;
+    }
+
+    .hero {
+        padding: 0 5%;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr; /* ဖုန်းမှာ width ပြည့် ၁ တန်းတည်း ပြသရန် */
+        gap: 15px;
+    }
+
+    #contact-form input, #contact-form textarea {
+        width: 100%;
+    }
+    
+    #backToTop {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+    }
+}
     </style>
 </head>
 <body>
@@ -251,9 +306,9 @@
     </section>
 
     <button id="backToTop">↑</button>
+    
 
     <script>
-        // 1. Project Data (Dynamic Array)
 const projects = [
     { title: "Personal Portfolio", category: "dynamic", description: "This current website!" },
     { title: "Static Landing Page", category: "basic", description: "Built with pure HTML/CSS." },
@@ -264,7 +319,6 @@ const projectGrid = document.getElementById('project-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const backToTopBtn = document.getElementById("backToTop"); // element ကို ခေါ်လိုက်ပါ
 
-// 2. Function to Render Projects 
 function displayProjects(filter = 'all') {
     projectGrid.innerHTML = ""; 
     
@@ -287,7 +341,6 @@ function displayProjects(filter = 'all') {
     });
 }
 
-// 3. Filter Event Listeners
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelector('.active').classList.remove('active');
@@ -296,7 +349,6 @@ filterBtns.forEach(btn => {
     });
 });
 
-// 4. Theme Toggle Logic
 const themeBtn = document.getElementById('theme-toggle');
 const currentTheme = localStorage.getItem('theme');
 
